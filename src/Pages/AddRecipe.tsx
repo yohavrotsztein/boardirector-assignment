@@ -1,23 +1,20 @@
 import { useEffect } from 'react';
-import { Box, Stack, Button } from '@mui/material';
+import { Box, Stack, Button, Typography } from '@mui/material';
 import { useAppDispatch } from '../redux/hooks';
 import AddRecipeForm from '../Components/AddRecipeForm';
 import { Link } from "react-router-dom";
 import { Icon } from '@iconify/react';
 
 
-
-
-
 export default function AddRecipe() {
 
-  const dispatch = useAppDispatch();
-
   useEffect(() => {
-  }, [dispatch]);
+    document.title = "Add Recipe";
+  }, []);
 
   return (
     <>
+
       <Button component={Link}
         to='/'
         startIcon={<Box component={Icon} icon={'material-symbols:arrow-back-ios-new'} />}
@@ -29,8 +26,10 @@ export default function AddRecipe() {
           spacing={2}
           direction={{ xs: 'column', sm: 'row' }}
           alignItems={{ sm: 'center' }}
+          display='block'
           sx={{ mb: 1 }}
         >
+          <Typography sx={{ m: 3 }} variant="h4">Add Recipe</Typography>
           <AddRecipeForm />
         </Stack>
       </Box>
